@@ -13,7 +13,7 @@ export const listTables = () => async (dispatch) => {
     try {
         dispatch({ type: TABLE_LIST_REQUEST })
 
-        const { data } = await axios.get(window.location.protocol + '//' + window.location.hostname + ':8000/api/tables/')
+        const { data } = await axios.get(window.location.protocol + '//' + window.location.hostname + ':5100/api/tables/')
 
         dispatch({ type: TABLE_LIST_SUCCESS, payload: data })
     } catch (error) {
@@ -26,7 +26,7 @@ export const listTableDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: TABLE_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`http://78.135.110.231:8000/api/tables/${id}`)
+        const { data } = await axios.get(window.location.protocol + '//' + window.location.hostname + `:5100/api/tables/${id}`)
 
         dispatch({ type: TABLE_DETAILS_SUCCESS, payload: data })
     } catch (error) {
